@@ -68,7 +68,7 @@ const Picture = ({
 				<Card.Body className="d-flex  flex-column text-center">
 					<Card.Title>Description: {description}</Card.Title>
 
-					{isOwner === true && (
+					{isOwner === true && forSale !== false && (
 						<>
 							<Form.Control
 								className={"pt-2 mb-1"}
@@ -90,7 +90,7 @@ const Picture = ({
 					)}
 
 				
-					{isOwner === true && (
+					{isOwner === true && forSale !== false && (
 						<>
 							
 

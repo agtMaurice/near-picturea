@@ -19,8 +19,8 @@ export function likePicture( Id ) {
   return window.contract.likePicture( { pictureId: Id }, GAS );
 }
 
-export function stopSale( Id ) {
-  return window.contract.stopSale( { pictureId: Id }, GAS );
+export function stopSale( id ) {
+  return window.contract.stopSale( { id: id }, GAS );
 }
 
 export function getPictures() {
