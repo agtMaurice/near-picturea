@@ -36,6 +36,7 @@ import { context, ContractPromiseBatch, u128 } from "near-sdk-as";
     if (picture == null) {
       throw new Error("picture not found");
     }
+    assert(picture.forSale == true, "Picture is not longer for sale");
     assert(picture.owner.toString() == context.sender.toString(),"You are not the owner ");
     assert(price > u128.Min, "price needs to be greater than the minimum value");
     picture.changePrice(price); 
@@ -81,10 +82,14 @@ export function buyPicture(pictureId: string): void {
  * @param Picture - add a picture to the marketplace
  */
 export function setPicture(picture: Picture): void {
+    assert(picture.id.length > 0, "Empty id");
     let storedPicture = pictureStorage.get(picture.id);
     if (storedPicture !== null) {
         throw new Error(`a picture with id=${picture.id} already exists`);
     }
+    assert(picture.image.length > 0, "Empty image");
+    assert(picture.description.length > 0, "Empty description");
+    assert(picture.price > u128.Min, "Invalid picture's price");
     pictureStorage.set(picture.id, Picture.fromPayload(picture));
 }
 
