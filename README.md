@@ -6,6 +6,6 @@ Picturea is a dapp on the near blockchain that facilitates the decentralized buy
 
 # Demo Link
 
-https://iridescent-otter-2fd5f2.netlify.app
+https://timely-hummingbird-66056f.netlify.app
 
 
